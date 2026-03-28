@@ -13,18 +13,19 @@
     }
 
     body {
-      background-color: #f0fdf8;
+      background: linear-gradient(180deg, #e8f9ff 0%, #eef4ff 50%, #f0eeff 100%);
       font-family: 'Nunito', sans-serif;
-      color: #3b1f47;
+      color: #1a1040;
       overflow-x: hidden;
+      min-height: 100vh;
     }
 
     /* ── HEADER ── */
     header {
-      background: linear-gradient(160deg, #00d4b0 0%, #00b8a2 40%, #7b3f6e 100%);
+      background: linear-gradient(135deg, #2ecc71 0%, #00c9b1 35%, #3a86ff 70%, #8338ec 100%);
       position: relative;
       overflow: hidden;
-      padding: 48px 24px 0;
+      padding: 52px 24px 0;
       text-align: center;
     }
 
@@ -32,34 +33,35 @@
     header::before {
       content: '';
       position: absolute;
-      top: -60px; left: -80px;
-      width: 320px; height: 320px;
-      background: rgba(255,255,255,0.08);
+      top: -80px; left: -100px;
+      width: 360px; height: 360px;
+      background: rgba(255,255,255,0.10);
       border-radius: 50%;
     }
     header::after {
       content: '';
       position: absolute;
-      bottom: 40px; right: -60px;
-      width: 200px; height: 200px;
-      background: rgba(255, 44, 181, 0.15);
+      bottom: 20px; right: -80px;
+      width: 240px; height: 240px;
+      background: rgba(46, 204, 113, 0.18);
       border-radius: 50%;
     }
 
     .header-stars {
       position: absolute;
-      top: 20px; left: 50%;
+      top: 18px; left: 50%;
       transform: translateX(-50%);
-      font-size: 1.2rem;
-      letter-spacing: 1.5rem;
-      opacity: 0.6;
+      font-size: 1.1rem;
+      letter-spacing: 1.4rem;
+      opacity: 0.65;
+      white-space: nowrap;
     }
 
     .header-name {
       font-family: 'Fredoka One', cursive;
-      font-size: clamp(2.6rem, 8vw, 4.2rem);
+      font-size: clamp(2.6rem, 8vw, 4.4rem);
       color: #ffffff;
-      text-shadow: 3px 4px 0px rgba(90, 20, 80, 0.35);
+      text-shadow: 3px 4px 0px rgba(30, 10, 80, 0.28);
       margin-bottom: 8px;
       position: relative;
       z-index: 1;
@@ -67,7 +69,7 @@
 
     .header-tagline {
       font-size: clamp(0.95rem, 2.5vw, 1.15rem);
-      color: rgba(255,255,255,0.88);
+      color: rgba(255,255,255,0.92);
       font-weight: 700;
       letter-spacing: 0.05em;
       margin-bottom: 32px;
@@ -85,21 +87,20 @@
     .illustration-frame {
       width: clamp(240px, 55vw, 380px);
       border-radius: 28px 28px 0 0;
-      border: 5px solid rgba(255,255,255,0.4);
+      border: 5px solid rgba(255,255,255,0.45);
       border-bottom: none;
-      box-shadow: 0 -4px 32px rgba(90,20,80,0.22), 0 0 0 10px rgba(255,44,181,0.15);
+      box-shadow: 0 -4px 32px rgba(58,134,255,0.25), 0 0 0 10px rgba(131,56,236,0.15);
       display: block;
       object-fit: cover;
     }
 
-    /* Fallback shown if image missing */
     .illustration-fallback {
       width: clamp(240px, 55vw, 380px);
       height: 420px;
       border-radius: 28px 28px 0 0;
-      border: 5px solid rgba(255,255,255,0.4);
+      border: 5px solid rgba(255,255,255,0.45);
       border-bottom: none;
-      background: linear-gradient(145deg, #00e5c3, #7b3f6e);
+      background: linear-gradient(145deg, #2ecc71, #3a86ff, #8338ec);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -122,112 +123,193 @@
       line-height: 0;
       margin-top: -2px;
     }
-    .wave svg {
-      display: block;
-      width: 100%;
-    }
+    .wave svg { display: block; width: 100%; }
 
     /* ── INTERESTS SECTION ── */
     main {
-      max-width: 820px;
+      max-width: 860px;
       margin: 0 auto;
-      padding: 48px 24px 64px;
+      padding: 52px 24px 72px;
     }
 
     .section-title {
       font-family: 'Fredoka One', cursive;
       font-size: clamp(1.7rem, 5vw, 2.4rem);
-      color: #7b3f6e;
+      background: linear-gradient(90deg, #2ecc71, #3a86ff, #8338ec);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
       text-align: center;
       margin-bottom: 8px;
     }
 
     .section-subtitle {
       text-align: center;
-      color: #a06ba0;
+      color: #6655a0;
       font-size: 1rem;
       font-weight: 600;
-      margin-bottom: 40px;
+      margin-bottom: 44px;
     }
 
     .interests-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
       gap: 24px;
     }
 
     .interest-card {
-      background: #ffffff;
-      border-radius: 20px;
-      padding: 32px 20px 28px;
+      border-radius: 22px;
+      padding: 36px 20px 30px;
       text-align: center;
-      box-shadow: 0 4px 20px rgba(123,63,110,0.10);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-      border: 3px solid transparent;
+      transition: transform 0.22s ease, box-shadow 0.22s ease;
       cursor: default;
       position: relative;
       overflow: hidden;
+      border: none;
     }
 
-    .interest-card::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      opacity: 0;
-      transition: opacity 0.2s;
-      border-radius: 17px;
+    /* Each card gets its own color */
+    .card-reading {
+      background: linear-gradient(145deg, #d4f7e7, #aef0d4);
+      box-shadow: 0 6px 24px rgba(46, 204, 113, 0.22);
+    }
+    .card-art {
+      background: linear-gradient(145deg, #d6eeff, #b3d9ff);
+      box-shadow: 0 6px 24px rgba(58, 134, 255, 0.22);
+    }
+    .card-singing {
+      background: linear-gradient(145deg, #d4faf7, #a5f0e8);
+      box-shadow: 0 6px 24px rgba(0, 201, 177, 0.22);
+    }
+    .card-craft {
+      background: linear-gradient(145deg, #e8d6ff, #d4b3ff);
+      box-shadow: 0 6px 24px rgba(131, 56, 236, 0.22);
     }
 
     .interest-card:hover {
-      transform: translateY(-6px) rotate(-1deg);
-      box-shadow: 0 12px 32px rgba(123,63,110,0.18);
+      transform: translateY(-8px) rotate(-1.5deg);
     }
+    .card-reading:hover  { box-shadow: 0 16px 36px rgba(46, 204, 113, 0.35); }
+    .card-art:hover      { box-shadow: 0 16px 36px rgba(58, 134, 255, 0.35); }
+    .card-singing:hover  { box-shadow: 0 16px 36px rgba(0, 201, 177, 0.35); }
+    .card-craft:hover    { box-shadow: 0 16px 36px rgba(131, 56, 236, 0.35); }
 
-    /* Card accent colours */
-    .card-reading   { border-color: #00d4b0; }
-    .card-art       { border-color: #ff2cb5; }
-    .card-singing   { border-color: #7b3f6e; }
-    .card-craft     { border-color: #ffb830; }
-
-    .card-reading:hover   { background: #e6fdf8; }
-    .card-art:hover       { background: #fff0f9; }
-    .card-singing:hover   { background: #f5edf9; }
-    .card-craft:hover     { background: #fff9ec; }
+    /* Decorative top stripe */
+    .interest-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 5px;
+      border-radius: 22px 22px 0 0;
+    }
+    .card-reading::before  { background: #2ecc71; }
+    .card-art::before      { background: #3a86ff; }
+    .card-singing::before  { background: #00c9b1; }
+    .card-craft::before    { background: #8338ec; }
 
     .card-icon {
       font-size: 3.4rem;
       margin-bottom: 14px;
       display: block;
       line-height: 1;
-      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.10));
     }
 
     .card-label {
       font-family: 'Fredoka One', cursive;
-      font-size: 1.25rem;
-      color: #3b1f47;
+      font-size: 1.3rem;
       margin-bottom: 8px;
     }
+    .card-reading  .card-label { color: #17854a; }
+    .card-art      .card-label { color: #1a5bbf; }
+    .card-singing  .card-label { color: #007a6e; }
+    .card-craft    .card-label { color: #5a1f9e; }
 
     .card-desc {
       font-size: 0.85rem;
-      color: #a06ba0;
       font-weight: 600;
       line-height: 1.5;
     }
+    .card-reading  .card-desc { color: #2a9a5a; }
+    .card-art      .card-desc { color: #2e6dcc; }
+    .card-singing  .card-desc { color: #008c80; }
+    .card-craft    .card-desc { color: #6e28c0; }
+
+    /* ── FAVOURITE COLORS ── */
+    .colors-section {
+      padding: 52px 24px 64px;
+      text-align: center;
+    }
+
+    .colors-inner {
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .colors-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 28px;
+      margin-top: 44px;
+    }
+
+    .color-swatch {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+      cursor: default;
+    }
+
+    .swatch-circle {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      transition: transform 0.22s ease, box-shadow 0.22s ease;
+      position: relative;
+    }
+
+    .swatch-circle::after {
+      content: '';
+      position: absolute;
+      inset: 8px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.25);
+    }
+
+    .color-swatch:hover .swatch-circle {
+      transform: scale(1.14) rotate(-6deg);
+    }
+
+    .swatch-label {
+      font-family: 'Fredoka One', cursive;
+      font-size: 1.05rem;
+    }
+
+    .swatch-green  { background: #2ecc71; box-shadow: 0 6px 22px rgba(46,204,113,0.45); }
+    .swatch-teal   { background: #00c9b1; box-shadow: 0 6px 22px rgba(0,201,177,0.45); }
+    .swatch-blue   { background: #3a86ff; box-shadow: 0 6px 22px rgba(58,134,255,0.45); }
+    .swatch-violet { background: #8338ec; box-shadow: 0 6px 22px rgba(131,56,236,0.45); }
+
+    .swatch-green  + .swatch-label { color: #17854a; }
+    .swatch-teal   + .swatch-label { color: #007a6e; }
+    .swatch-blue   + .swatch-label { color: #1a5bbf; }
+    .swatch-violet + .swatch-label { color: #5a1f9e; }
 
     /* ── FOOTER ── */
     footer {
-      background: linear-gradient(90deg, #7b3f6e, #00b8a2);
+      background: linear-gradient(90deg, #2ecc71, #00c9b1, #3a86ff, #8338ec);
       color: white;
       text-align: center;
-      padding: 20px 24px;
+      padding: 22px 24px;
       font-size: 0.9rem;
       font-weight: 700;
       letter-spacing: 0.04em;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.2);
     }
 
-    footer span { opacity: 0.75; }
+    footer span { opacity: 0.80; }
   </style>
 </head>
 <body>
@@ -239,7 +321,6 @@
     <p class="header-tagline">✨ creative · curious · one of a kind ✨</p>
 
     <div class="illustration-wrap">
-      <!-- Save your illustration as "joella.png" in the same folder as this HTML file -->
       <img
         class="illustration-frame"
         src="joella.png"
@@ -258,8 +339,10 @@
     <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
       <defs>
         <linearGradient id="waveGrad" x1="0" y1="0" x2="1" y2="0">
-          <stop offset="0%" stop-color="#00b8a2"/>
-          <stop offset="100%" stop-color="#7b3f6e"/>
+          <stop offset="0%"   stop-color="#2ecc71"/>
+          <stop offset="33%"  stop-color="#00c9b1"/>
+          <stop offset="66%"  stop-color="#3a86ff"/>
+          <stop offset="100%" stop-color="#8338ec"/>
         </linearGradient>
       </defs>
       <path d="M0,0 C360,80 1080,0 1440,60 L1440,0 Z" fill="url(#waveGrad)"/>
@@ -299,6 +382,37 @@
 
     </div>
   </main>
+
+  <!-- ═══════════════ FAVOURITE COLORS ═══════════════ -->
+  <section class="colors-section">
+    <div class="colors-inner">
+      <h2 class="section-title">My Favourite Colors 🌈</h2>
+      <p class="section-subtitle">These are the colors that make me happy!</p>
+      <div class="colors-grid">
+
+        <div class="color-swatch">
+          <div class="swatch-circle swatch-green"></div>
+          <span class="swatch-label" style="color:#17854a">Green</span>
+        </div>
+
+        <div class="color-swatch">
+          <div class="swatch-circle swatch-teal"></div>
+          <span class="swatch-label" style="color:#007a6e">Teal</span>
+        </div>
+
+        <div class="color-swatch">
+          <div class="swatch-circle swatch-blue"></div>
+          <span class="swatch-label" style="color:#1a5bbf">Blue</span>
+        </div>
+
+        <div class="color-swatch">
+          <div class="swatch-circle swatch-violet"></div>
+          <span class="swatch-label" style="color:#5a1f9e">Violet</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
 
   <!-- ═══════════════ FOOTER ═══════════════ -->
   <footer>
