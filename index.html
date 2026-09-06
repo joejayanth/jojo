@@ -189,6 +189,11 @@
     .interest-card:hover {
       transform: translateY(-8px) rotate(-1.5deg);
     }
+    .interest-card:focus-visible {
+      outline: 3px solid #17854a;
+      outline-offset: 3px;
+    }
+
     .card-reading:hover  { box-shadow: 0 16px 36px rgba(46, 204, 113, 0.35); }
     .card-art:hover      { box-shadow: 0 16px 36px rgba(58, 134, 255, 0.35); }
     .card-singing:hover  { box-shadow: 0 16px 36px rgba(0, 201, 177, 0.35); }
@@ -235,6 +240,86 @@
     .card-singing  .card-desc { color: #008c80; }
     .card-craft    .card-desc { color: #6e28c0; }
 
+    /* ── BOOKS MODAL ── */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(26, 16, 64, 0.55);
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      z-index: 100;
+    }
+
+    .modal-overlay.is-open {
+      display: flex;
+    }
+
+    .modal-box {
+      position: relative;
+      background: linear-gradient(160deg, #ffffff, #d4f7e7);
+      border-radius: 26px;
+      padding: 40px 32px 34px;
+      max-width: 360px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 20px 50px rgba(26, 16, 64, 0.35);
+      border-top: 6px solid #2ecc71;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 14px; right: 14px;
+      width: 34px; height: 34px;
+      border-radius: 50%;
+      border: none;
+      background: rgba(46, 204, 113, 0.16);
+      color: #17854a;
+      font-size: 1rem;
+      font-weight: 800;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.15s ease;
+    }
+    .modal-close:hover { background: rgba(46, 204, 113, 0.3); }
+
+    .modal-icon {
+      font-size: 2.6rem;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .modal-title {
+      font-family: 'Fredoka One', cursive;
+      font-size: 1.5rem;
+      color: #17854a;
+      margin-bottom: 22px;
+    }
+
+    .books-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      text-align: left;
+    }
+
+    .books-list li {
+      background: rgba(255, 255, 255, 0.7);
+      border-radius: 14px;
+      padding: 14px 18px;
+      font-weight: 700;
+      color: #1a1040;
+      box-shadow: 0 3px 10px rgba(46, 204, 113, 0.15);
+    }
+
+    .books-list li::before {
+      content: '📖 ';
+    }
+
     /* ── FAVOURITE COLORS ── */
     .colors-section {
       padding: 52px 24px 64px;
@@ -263,9 +348,13 @@
     }
 
     .swatch-circle {
-      width: 100px;
-      height: 100px;
-      border-radius: 50%;
+      width: 110px;
+      height: 110px;
+      clip-path: polygon(
+        50% 0%, 63% 35%, 100% 35%, 69% 57%,
+        82% 91%, 50% 70%, 18% 91%, 31% 57%,
+        0% 35%, 37% 35%
+      );
       transition: transform 0.22s ease, box-shadow 0.22s ease;
       position: relative;
     }
@@ -273,8 +362,8 @@
     .swatch-circle::after {
       content: '';
       position: absolute;
-      inset: 8px;
-      border-radius: 50%;
+      inset: 12px;
+      clip-path: inherit;
       background: rgba(255,255,255,0.25);
     }
 
@@ -356,7 +445,7 @@
 
     <div class="interests-grid">
 
-      <div class="interest-card card-reading">
+      <div class="interest-card card-reading" role="button" tabindex="0" onclick="openBooksModal()" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openBooksModal();}">
         <span class="card-icon">📚</span>
         <div class="card-label">Reading</div>
         <div class="card-desc">Lost in books & amazing stories</div>
@@ -382,6 +471,21 @@
 
     </div>
   </main>
+
+  <!-- ═══════════════ BOOKS MODAL ═══════════════ -->
+  <div class="modal-overlay" id="booksModal" onclick="if(event.target===this)closeBooksModal()">
+    <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="booksModalTitle">
+      <button class="modal-close" onclick="closeBooksModal()" aria-label="Close">✕</button>
+      <span class="modal-icon">📚</span>
+      <h3 class="modal-title" id="booksModalTitle">My Favourite Books</h3>
+      <ul class="books-list">
+        <li>Agatha Oddly</li>
+        <li>Geronimo Stilton</li>
+        <li>Magic Treehouse</li>
+        <li>Julia Donaldson</li>
+      </ul>
+    </div>
+  </div>
 
   <!-- ═══════════════ FAVOURITE COLORS ═══════════════ -->
   <section class="colors-section">
@@ -418,6 +522,18 @@
   <footer>
     Made with 💜 for Joella &nbsp;·&nbsp; <span>Age 9</span>
   </footer>
+
+  <script>
+    function openBooksModal() {
+      document.getElementById('booksModal').classList.add('is-open');
+    }
+    function closeBooksModal() {
+      document.getElementById('booksModal').classList.remove('is-open');
+    }
+    document.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape') closeBooksModal();
+    });
+  </script>
 
 </body>
 </html>
